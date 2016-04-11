@@ -1,0 +1,11 @@
+{
+  "name"         : "Seminario",
+  "version"      : "0.0.1",
+  "description"  : "Sencilla ",
+  "main"         : "server.js",
+  "author"       : "David Cañada y David Raja",
+  "dependencies" : {
+    "express"    : "~3.4.4",
+    "mongoose"   : "~3.6.2"
+  }
+}

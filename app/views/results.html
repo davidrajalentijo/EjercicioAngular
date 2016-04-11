@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html ng-app="MainApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List of Doctors</title>
+    <!-- Cargamos bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <!-- Cargamos app -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
+    <!-- Cargamos el javascript de app -->
+    <script src="../Controllers/core.js"></script>
+
+
+</head>
+<body ng-controller="secondController">
+
+<div align="center"> <h1>
+    Results:
+</h1></div>
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-1">
+            <table  class="table table-bordered table-striped">
+                <tr class="info">
+                    <td>
+                        <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                            Name
+                            <span ng-show="sortType == 'name' && !sortReverse" ><i class="fa fa-caret-down"></i></span>
+                            <span ng-show="sortType == 'name' && sortReverse" ><i class="fa fa-caret-up"></i></span>
+                        </a>
+                    </td>
+                    <td>			 <a href="#" ng-click="sortType = 'surname'; sortReverse = !sortReverse">
+                        Surname
+                        <span ng-show="sortType == 'surname' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'surname' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></td>
+                    <td>			 <a href="#" ng-click="sortType = 'correo'; sortReverse = !sortReverse">
+                        Correo
+                        <span ng-show="sortType == 'correo' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'correo' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></td>
+                    <td>			 <a href="#" ng-click="sortType = 'specialty'; sortReverse = !sortReverse">
+                        Specialty
+                        <span ng-show="sortType == 'specialty' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'specialty' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></td>
+                    <td>			 <a href="#" ng-click="sortType = 'hospital'; sortReverse = !sortReverse">
+                        Hospital
+                        <span ng-show="sortType == 'hospital' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'hospital' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></td>
+                    </td>
+                    <td>			 <a href="#" ng-click="sortType = 'city'; sortReverse = !sortReverse">
+                        City
+                        <span ng-show="sortType == 'city' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'city' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></td>
+
+                </tr>
+                <tr ng-repeat="result in results | orderBy:sortType:sortReverse | filter:searchText " >
+                    <td>{{ result.name }}</td>
+                    <td>{{ result.surname }}</td>
+                    <td >{{ result.correo }}</td>
+                    <td  >{{ result.specialty }}</td>
+                    <td>{{result.specialty}}</td>
+                    <td>{{result.city}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
